@@ -28,7 +28,6 @@ class Record:
         self.phones = [phone] if phone else []
 
     def add_phone(self, phone):
-
         self.phones.append(Phone(phone))
 
     def remove_phone(self, phone):
@@ -52,6 +51,7 @@ class Record:
                 raise ValueError
 
     def find_phone(self, phone):
+
         for p in self.phones:
             if p.value == phone:
                 return p
@@ -103,7 +103,6 @@ def add_contact(*args):
     name = Name(args[0])
 
     if name.value in book:
-
         try:
             phone = Phone(args[1])
             book[name.value].add_phone(phone)
@@ -127,7 +126,6 @@ def change(*args):
     name = args[0]
     old_phone = args[1]
     new_phone = args[2]
-
     record = book.get(name)
     if record:
         message = record.edit_phone(old_phone, new_phone)
@@ -166,7 +164,6 @@ def remove_phone(*args):
     name = args[0]
     phone = args[1]
     record = book.get(name)
-
     if record:
         message = record.remove_phone(phone)
         return message
